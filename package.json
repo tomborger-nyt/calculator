@@ -5,8 +5,10 @@
   "homepage": "http://ahfarmer.github.io/calculator",
   "devDependencies": {
     "chai": "^4.2.0",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-prettier": "^5.5.6",
     "gh-pages": "^2.0.1",
-    "prettier": "^1.17.1"
+    "prettier": "^3.9.5"
   },
   "dependencies": {
     "@babel/core": "^7.16.0",
@@ -65,6 +67,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
+    "lint": "NODE_ENV=development eslint src",
     "deploy": "gh-pages -d build"
   },
   "prettier": {
@@ -137,6 +140,9 @@
     ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "plugin:prettier/recommended"
+    ]
   }
 }

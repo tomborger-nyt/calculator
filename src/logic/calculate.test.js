@@ -8,11 +8,11 @@ const expect = chai.expect;
 
 function pressButtons(buttons) {
   const value = {};
-  buttons.forEach(button => {
+  buttons.forEach((button) => {
     Object.assign(value, calculate(value, button));
   });
   // no need to distinguish between null and undefined values
-  Object.keys(value).forEach(key => {
+  Object.keys(value).forEach((key) => {
     if (value[key] === null) {
       delete value[key];
     }
@@ -31,7 +31,7 @@ function test(buttons, expectation, only = false) {
   });
 }
 
-describe("calculate", function() {
+describe("calculate", function () {
   test(["6"], { next: "6" });
 
   test(["6", "6"], { next: "66" });
@@ -158,16 +158,16 @@ describe("calculate", function() {
   //Test that pressing the multiplication or division sign multiple times should not affect the current computation
   test(["2", "x", "x"], {
     total: "2",
-    operation: "x"
+    operation: "x",
   });
 
   test(["2", "÷", "÷"], {
     total: "2",
-    operation: "÷"
+    operation: "÷",
   });
 
   test(["2", "÷", "x", "+", "-", "x"], {
     total: "2",
-    operation: 'x'
+    operation: "x",
   });
 });
